@@ -9,5 +9,12 @@ class OrderModel {
 
   OrderModel copyWith({List<ProductModel>? products}) => OrderModel(products: products ?? this.products);
 
-  double get total => products.fold(0, (prev, newValue) => prev + newValue.price);
+  /// USE UNMODIFIABLE LIST
+  factory OrderModel.empty2() => OrderModel(products: List.unmodifiable(<ProductModel>[]));
+
+  /// USE UNMODIFIABLE LIST
+  OrderModel copyWith2({List<ProductModel>? products}) =>
+      OrderModel(products: List.unmodifiable(products ?? this.products));
+
+  double get total => products.fold<double>(0, (prev, product) => prev + product.price);
 }

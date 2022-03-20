@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:provider_example/src/provider_shop_example/providers/order_provider.dart';
 
 import 'package:provider_example/src/provider_shop_example/screens/cart_screen.dart';
 
@@ -10,11 +12,13 @@ class CustomFloating extends StatelessWidget {
     return FloatingActionButton(
         backgroundColor: Colors.blueGrey,
         child: Stack(
-          children: const [
-            Align(child: Icon(Icons.shopping_cart_outlined)),
+          children: [
+            const Align(child: Icon(Icons.shopping_cart_outlined)),
             Align(
-              alignment: Alignment(0.8, -0.8),
-              child: _CircleNotifier(value: 0),
+              alignment: const Alignment(0.8, -0.8),
+              child: Consumer<OrderProvider>(
+                builder: (context, provider, _) => _CircleNotifier(value: provider.length),
+              ),
             )
           ],
         ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:provider_example/src/provider_example/providers/counter_provider.dart';
 
 import 'package:provider_example/src/widgets/widgets.dart';
 
@@ -7,9 +9,8 @@ class ValueText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('==  ProviderValueText');
-    const counter = 0;
+    final counter = context.select<CounterProvider, int>((provider) => provider.counter);
 
-    return const ValueCard(value: counter);
+    return ValueCard(value: counter);
   }
 }

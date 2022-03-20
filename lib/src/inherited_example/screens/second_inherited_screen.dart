@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider_example/src/inherited_example/inherited/counter_inherited.dart';
 
 import 'package:provider_example/src/inherited_example/widgets/widgets.dart';
 
@@ -7,7 +8,7 @@ class SecondInheritedScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const lastData = 0;
+    final lastData = context.readInherited().value;
 
     return Scaffold(
       appBar: AppBar(

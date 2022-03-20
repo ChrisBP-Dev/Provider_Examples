@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider_example/src/inherited_example/inherited/counter_inherited.dart';
 
 import 'package:provider_example/src/widgets/widgets.dart';
 
@@ -7,8 +8,8 @@ class ValueText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const counter = 0;
+    final counter = CounterInherited.of(context).value;
 
-    return const ValueCard(value: counter);
+    return ValueCard(value: counter);
   }
 }

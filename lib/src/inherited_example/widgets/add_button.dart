@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider_example/src/inherited_example/inherited/counter_inherited.dart';
 
 import 'package:provider_example/src/widgets/widgets.dart';
 
@@ -10,7 +11,11 @@ class AddButton extends StatelessWidget {
     print('=== AddButton');
 
     return CustomButton(
-      onTap: () {},
+      onTap: () {
+        final counter = context.readInherited().value;
+
+        context.readInherited().onChanged(counter + 1);
+      },
       title: 'Add',
       color: Colors.blueAccent.withOpacity(0.4),
     );

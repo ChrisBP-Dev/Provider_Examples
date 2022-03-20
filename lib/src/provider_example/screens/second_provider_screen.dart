@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:provider_example/src/provider_example/providers/counter_provider.dart';
 
 import 'package:provider_example/src/provider_example/widgets/widgets.dart';
 
@@ -7,7 +9,7 @@ class SecondProviderScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const lastData = 0;
+    final lastData = context.read<CounterProvider>().counter;
 
     return Scaffold(
       appBar: AppBar(

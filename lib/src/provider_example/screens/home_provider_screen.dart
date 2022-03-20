@@ -11,7 +11,7 @@ class HomeProviderScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Provider  Home'),
+        title: const Text('Provider Home'),
         centerTitle: true,
         backgroundColor: Colors.deepPurpleAccent,
       ),

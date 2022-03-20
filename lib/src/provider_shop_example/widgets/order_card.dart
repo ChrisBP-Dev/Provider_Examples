@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:provider_example/src/provider_shop_example/providers/order_provider.dart';
 
 import 'package:provider_example/src/widgets/widgets.dart';
 import 'package:provider_example/src/provider_shop_example/models/product_model.dart';
 
 class OrderCard extends StatelessWidget {
-  const OrderCard({Key? key, required this.product}) : super(key: key);
+  const OrderCard({Key? key, required this.product, required this.index}) : super(key: key);
 
   final ProductModel product;
+
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +43,7 @@ class OrderCard extends StatelessWidget {
             ],
           ),
           const Spacer(),
-          CustomButton.paddingZero(title: 'Remove', onTap: () {})
+          CustomButton.paddingZero(title: 'Remove', onTap: () => context.read<OrderProvider>().removeProduct(index))
         ],
       ),
     );

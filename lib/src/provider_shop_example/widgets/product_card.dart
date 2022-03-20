@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:provider_example/src/provider_shop_example/providers/order_provider.dart';
 
 import 'package:provider_example/src/widgets/widgets.dart';
 import 'package:provider_example/src/provider_shop_example/models/product_model.dart';
@@ -38,7 +40,7 @@ class ProductCard extends StatelessWidget {
             '\$/.  ${product.price}',
             style: Theme.of(context).textTheme.subtitle2,
           ),
-          CustomButton.paddingZero(title: 'Add', onTap: () {})
+          CustomButton.paddingZero(title: 'Add', onTap: () => context.read<OrderProvider>().addProduct(product))
         ],
       ),
     );
